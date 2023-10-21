@@ -1,7 +1,7 @@
 const headerSerchInput = document.querySelector('.search-box input#countryName')
 const selectCountry = document.querySelector('.select-box select')
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events/k7vGFKzleBdwS/images.json?apikey=G54BzBe6OKEVYrbTC4hVXGtHDspAOWwv'
-headerSerchInput.addEventListener('input', searchMusics)
+// headerSerchInput.addEventListener('input', searchMusics)
 
 async function fetchCountries() {
     try {
