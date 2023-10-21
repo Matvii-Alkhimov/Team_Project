@@ -1,0 +1,41 @@
+ .btn.btn-secondary{
+    background-color: rgba(147, 147, 147, 0.477);
+    color: rgba(147, 147, 147, 1);
+    border-radius: 20px;
+    border-color: rgba(255, 255, 255, 0.2);
+    width: 250px;
+    height: 40px;
+ }
+
+ 
+
+ .dropdown-menu{
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+ }
+
+ .countryDropdown{
+    background-color: rgba(69, 65, 65, 0.477);
+    color: rgba(147, 147, 147, 1);
+    border-radius: 20px;
+    border-color: rgba(255, 255, 255, 0.2);
+    width: 250px;
+    height: 40px; 
+ }
+ select {
+   padding-left: 5%;
+   padding-right: 5%;
+   outline: none;
+   color: #939393;
+   flex-shrink: 0;
+   border: none;
+   max-width: 80%;
+   border-radius: 20px;
+   background-color: rgba(0, 0, 0, 0);
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+ }
+
+ 
