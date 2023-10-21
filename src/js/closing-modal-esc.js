@@ -13,17 +13,18 @@ modalBtn.addEventListener("click", () => {
    body.classList.add("show-modal")
    window.addEventListener("keydown", onModalEscClose)
 })
+})
 
 closeModale.addEventListener("click", onBtnClose)
 
-function onBtnClose(){
+function onBtnClose() {
     body.classList.remove("show-modal")
     window.removeEventListener("keydown" , onModalEscClose);
 function onModalEscClose(evt){
     if (evt.code === "Escape") {
         
     }
-}
+}}
 
 backdrop.addEventListener("click", onBackdropClick)
 
@@ -35,8 +36,7 @@ function onBackdropClick(event) {
 
 function onModalEscClose(evt){
     if (evt.code === "Escape") {
-        onBtnClose()
-    if (event) {
-        
+        onBtnClose() 
     }
+
 }
