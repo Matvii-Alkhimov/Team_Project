@@ -33,6 +33,3 @@ function sortCountries(countries) {
     const sortCountries = countriesArray.sort()
     return sortCountries
 }
-
-
-
