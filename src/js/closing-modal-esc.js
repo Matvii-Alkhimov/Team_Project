@@ -4,6 +4,7 @@ const closeModale = document.querySelector('[data-action="close-modal"]')
 const modale = document.querySelector("[data-modal]")
 const body = document.querySelector("body")
 
+<<<<<<< Updated upstream
 openModale.addEventListener("click", (event) => {
     console.log(event.target.nodeName)
    if (event.target.nodeName === "IMG") {
@@ -14,13 +15,23 @@ openModale.addEventListener("click", (event) => {
 
 closeModale.addEventListener("click", () => {
    backdrop.classList.add("is-hidden")
+=======
+openModale.addEventListener("click", () => {
+  body.classList.add("show-modal")
+  window.addEventListener("keydown", onModalEscClose)
+>>>>>>> Stashed changes
 })
 
 closeModale.addEventListener("click", onBtnClose)
 
 function onBtnClose() {
+<<<<<<< Updated upstream
     backdrop.classList.add("is-hidden")
     window.removeEventListener("keydown", onModalEscClose);
+=======
+    body.classList.remove("show-modal")
+    window.removeEventListener("keydown" , onModalEscClose);
+>>>>>>> Stashed changes
 }
 
 backdrop.addEventListener("click", onBackdropClick)
