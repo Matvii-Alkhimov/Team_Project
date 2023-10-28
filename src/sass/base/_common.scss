@@ -34,3 +34,26 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.section {
+    padding: 40px 20px;
+
+   
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding: 0 86px 30px 86px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .section {
+        padding: 0 165px 40px 165px;
+    }
+}
