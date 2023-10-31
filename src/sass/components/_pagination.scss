@@ -1,7 +1,8 @@
-// .btns>* {
-// }
+.pagination {
+	justify-content: center;
+}
 
-.btn {
+.btn-pagination {
 	display: inline-block;
 	letter-spacing: .5px;
 	text-align: center;
@@ -21,7 +22,7 @@
 	text-align: center;
 }
 
-.btn.active {
+.btn-pagination.active {
 	padding: 12px 5px;
 	border: 1px solid #DC56C5;
 	padding: 6px 13px;
@@ -29,6 +30,6 @@
 	border-radius: 10px 0px;
 }
 
-.btn:hover {
+.btn-pagination:hover {
 	color: #DC56C5;
 }

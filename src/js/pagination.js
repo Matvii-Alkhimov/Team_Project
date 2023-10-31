@@ -1,11 +1,11 @@
 const per_page_max = 29;
 let current_page = 1;
-const btns = document.querySelector('.btns');
+const btns = document.querySelector('.pagination');
 
 function appendBtn(i, ellipsis) {
 	const activeBtn = current_page === i;
 	const button = document.createElement('button');
-	button.classList.add('btn');
+	button.classList.add('btn-pagination');
 	if (ellipsis === true) {
 		button.innerHTML = '...';
 		button.disabled = true;
@@ -40,11 +40,11 @@ function logic() {
 		appendBtn(current_page, true);
 	} else if (current_page <= per_page_max - 5) {
 		appendBtn(current_page, true);
-		appendBtn(current_page - 2);
+		// appendBtn(current_page - 2);
 		appendBtn(current_page - 1);
 		appendBtn(current_page);
 		appendBtn(current_page + 1);
-		appendBtn(current_page + 2);
+		// appendBtn(current_page + 2);
 		appendBtn(current_page, true);
 	} else {
 		appendBtn(current_page, true);
