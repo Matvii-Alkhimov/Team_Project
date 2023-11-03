@@ -3,8 +3,11 @@ import searchedCardTpl from '../render-serched-cards.handlebars'
 const headerSerchInput = document.querySelector('.search-box input#countryName')
 const selectCountry = document.querySelector('.select-box select')
 const mainCardsList = document.querySelector('.main-section .cards-list')
-const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events/k7vGFKzleBdwS/images.json?apikey=G54BzBe6OKEVYrbTC4hVXGtHDspAOWwv'
-headerSerchInput.addEventListener('input', renderCards)
+const allFilterEl = document.getElementById('all-text')
+const likedFilterEl = document.getElementById('liked-text')
+headerSerchInput.addEventListener('input', renderSearchedCards)
+likedFilterEl.addEventListener('click', renderLikedCards)
+allFilterEl.addEventListener('click', renderCards)
 
 async function fetchCountries() {
     try {
@@ -50,18 +53,41 @@ async function fetchMusics() {
 }
 
 
-async function renderCards(event) {
+async function renderSearchedCards(event) {
     const inputValue = event.target.value
     if (inputValue !== '') {
         mainCardsList.innerHTML = ''
         fetchMusics(inputValue)
         .then((music)=> {
             for (let i = 0; i < music.length; i++) {
-                const countryName = music[i].name.toLowerCase()
-                if (countryName.includes(inputValue.toLowerCase()) && inputValue !== '') {
+                const cardName = music[i].name.toLowerCase()
+                if (cardName.includes(inputValue.toLowerCase()) && inputValue !== '') {
                     mainCardsList.innerHTML += searchedCardTpl(music[i])
                 }
             }
         });
     }
+}
+
+async function renderCards() {
+    mainCardsList.innerHTML = ''
+    fetchMusics()
+    .then((music)=> {
+        for (let i = 0; i < music.length; i++) {
+            mainCardsList.innerHTML += searchedCardTpl(music[i])
+        }
+    });
+}
+
+async function renderLikedCards() {
+    const liked = JSON.parse(localStorage.getItem('liked'))
+    mainCardsList.innerHTML = ''
+    fetchMusics()
+    .then((music)=> {
+        for (let i = 0; i < music.length; i++) {
+            if (liked.includes(music[i].id)) {
+                mainCardsList.innerHTML += searchedCardTpl(music[i])
+            }
+        }
+    });
 }
