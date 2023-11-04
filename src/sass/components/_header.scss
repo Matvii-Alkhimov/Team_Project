@@ -87,7 +87,7 @@ header {
                 align-items: center;
                 width: 50%;
                 gap: 30px;
-                .search-box, .select-box {
+                .search-box {
                     padding-left: 5%;
                     padding-right: 5%;
                     display: flex;
@@ -110,21 +110,24 @@ header {
                             color: #939393;
                         }
                     }
-                    select {
-                        padding-left: 5%;
-                        padding-right: 5%;
-                        outline: none;
-                        color: #939393;
-                        flex-shrink: 0;
-                        border: none;
-                        max-width: 80%;
-                        border-radius: 20px;
-                        background-color: rgba(0, 0, 0, 0);
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
-                        appearance: none;
-                        
-                    }
+                }
+                select {
+                    padding-left: 5%;
+                    padding-right: 5%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: #939393;
+                    width: 40%;
+                    height: 40px;
+                    border-radius: 20px;
+                    background: rgba(255, 255, 255, 0.20);
+                    background-repeat: no-repeat;
+                    background-position-x: 90%;
+                    background-position-y: center;
+                    backdrop-filter: blur(10px);
+                    background-image: url('../../assets/arrow-1.png');
+                    background-size: 12px;
                 }
             }
         }
@@ -194,19 +197,18 @@ header {
             .form-side {
                 form {
                     width: 60%;
-                    .search-box,.select-box {
+                    .search-box {
                         padding-left: 3%;
                         padding-right: 3%;
                         max-width: 40%;
                         height: 40px;
-                        select {
-                            padding-left: 3%;
-                            padding-right: 3%;
-                            outline: none;
-                            color: #939393;
-                            min-width: 80%;
-                            height: 45px;
-                        }
+                    }
+                    select {
+                        padding-left: 3%;
+                        padding-right: 3%;
+                        max-width: 40%;
+                        height: 40px;
+                        background-position-x: 90%;
                     }
                 }
             }
@@ -264,19 +266,17 @@ header {
             .form-side {
                 form {
                     width: 90%;
-                    .search-box,.select-box {
+                    .search-box {
                         padding-left: 3%;
                         padding-right: 3%;
                         min-width: 40%;
                         height: 35px;
-                        select {
-                            padding-left: 3%;
-                            padding-right: 3%;
-                            outline: none;
-                            color: #939393;
-                            min-width: 80%;
-                            height: 45px;
-                        }
+                    }
+                    select {
+                        padding-left: 3%;
+                        padding-right: 3%;
+                        min-width: 40%;
+                        height: 35px;
                     }
                 }
             }
@@ -347,20 +347,17 @@ header {
                 margin-top: 20px;
                 form {
                     width: 90%;
-                    .search-box, .select-box {
+                    .search-box {
                         padding-left: 3%;
                         padding-right: 3%;
                         min-width: 90%;
                         height: 30px;
-                        select, option {
-                            padding-left: 3%;
-                            padding-right: 3%;
-                            outline: none;
-                            color: #939393;
-                            min-width: 90%;
-                            height: 45px;
-                        }
-
+                    }
+                    select, option {
+                        padding-left: 3%;
+                        padding-right: 3%;
+                        min-width: 90%;
+                        height: 30px;
                     }
                 }
             }

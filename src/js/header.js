@@ -1,10 +1,15 @@
 import searchedCardTpl from '../render-serched-cards.handlebars'
 
 const headerSerchInput = document.querySelector('.search-box input#countryName')
-const selectCountry = document.querySelector('.select-box select')
+const selectCountry = document.querySelector('select')
 const mainCardsList = document.querySelector('.main-section .cards-list')
 const allFilterEl = document.getElementById('all-text')
 const likedFilterEl = document.getElementById('liked-text')
+const form = document.querySelector('.form-side form')
+const countryInputSearch = document.getElementById('countryName')
+const searchSpan = document.querySelector('.search-box .material-symbols-outlined')
+form.addEventListener('submit', renderSearchedCards)
+searchSpan.addEventListener('click', renderSearchedCards)
 headerSerchInput.addEventListener('input', renderSearchedCards)
 likedFilterEl.addEventListener('click', renderLikedCards)
 allFilterEl.addEventListener('click', renderCards)
@@ -54,7 +59,8 @@ async function fetchMusics() {
 
 
 async function renderSearchedCards(event) {
-    const inputValue = event.target.value
+    event.preventDefault()
+    const inputValue = countryInputSearch.value
     if (inputValue !== '') {
         mainCardsList.innerHTML = ''
         fetchMusics(inputValue)
@@ -66,6 +72,8 @@ async function renderSearchedCards(event) {
                 }
             }
         });
+    } else {
+        renderCards()
     }
 }
 
