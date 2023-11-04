@@ -1,3 +1,4 @@
+import './js/spinner';
 import './js/footer';
 import './js/header';
 import './js/main-section';
