@@ -10,26 +10,31 @@ function likeEvent(id){
     try {
         liked.includes(id)||liked.push(id)
         localStorage.setItem('liked', JSON.stringify(liked))
-        console.log(liked)
     } catch (error) {
         console.error(error)
 }}
 
-function unlikeEvent(e, id){
+function unlikeEvent(id){
     try {
         liked.includes(id)&&liked.splice(liked.indexOf(id),1)
         localStorage.setItem('liked',JSON.stringify(liked))
-        e.currentTarget.classList.remove('liked')
-        console.log(liked)
     } catch (error) {
         console.error(error)
 }}
 
-function likeBtnClick(e){
-    e.preventDefault()
-    const id = 1
-    if(liked.includes(id)){unlikeEvent(id)}else{likeEvent(id)}
+async function likeBtnClick(e){
+    try {
+        if(e.target.classList.value.includes('like-button')){
+            e.preventDefault()
+            id=e.target.dataset.id
+            if(liked.includes(id)){unlikeEvent(id)}else{likeEvent(id)}
+        }
+    } catch (error) {
+        console.error(error)
+    }
+    
 }
+document.querySelector('body').addEventListener('click', likeBtnClick)
 
 async function renderFilter() {
     try {
