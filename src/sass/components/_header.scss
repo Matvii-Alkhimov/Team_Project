@@ -7,6 +7,7 @@ header {
     .container {
         background-color: rgba(0, 0, 0, 0.40);
         height: 600px;
+        max-width: 100%;
         .logo-side {
             height: 50%;
             display: flex;
@@ -75,7 +76,7 @@ header {
         }
         .form-side {
             width: 100%;
-            height: 50%;
+            height: 40%;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -84,7 +85,7 @@ header {
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                width: 40%;
+                width: 50%;
                 gap: 30px;
                 .search-box, .select-box {
                     padding-left: 5%;
@@ -127,6 +128,20 @@ header {
                 }
             }
         }
+        .filter {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            h2 {
+                color: white;
+                span {
+                    &:hover {
+                    text-decoration: underline;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -140,6 +155,7 @@ header {
         height: 450px;
         .container {
             height: 450px;
+            max-width: 100%;
             .logo-side {
                 height: 40%;
                 .logo {
@@ -182,7 +198,7 @@ header {
                         padding-left: 3%;
                         padding-right: 3%;
                         max-width: 40%;
-                        height: 45px;
+                        height: 40px;
                         select {
                             padding-left: 3%;
                             padding-right: 3%;
@@ -208,6 +224,8 @@ header {
         height: 450px;
         .container {
             height: 450px;
+            max-width: 100%;
+            padding: 0px;
             .logo-side {
                 height: 40%;
                 .logo {
@@ -250,7 +268,7 @@ header {
                         padding-left: 3%;
                         padding-right: 3%;
                         min-width: 40%;
-                        height: 45px;
+                        height: 35px;
                         select {
                             padding-left: 3%;
                             padding-right: 3%;
@@ -260,6 +278,15 @@ header {
                             height: 45px;
                         }
                     }
+                }
+            }
+            .filter {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h2 {
+                    font-size: 24px;
                 }
             }
         }
@@ -275,6 +302,7 @@ header {
         height: 450px;
         .container {
             height: 450px;
+            max-width: 100%;
             .logo-side {
                 height: 40%;
                 flex-direction: column;
@@ -323,7 +351,7 @@ header {
                         padding-left: 3%;
                         padding-right: 3%;
                         min-width: 90%;
-                        height: 45px;
+                        height: 30px;
                         select, option {
                             padding-left: 3%;
                             padding-right: 3%;
@@ -334,6 +362,15 @@ header {
                         }
 
                     }
+                }
+            }
+            .filter {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h2 {
+                    font-size: 20px;
                 }
             }
         }
