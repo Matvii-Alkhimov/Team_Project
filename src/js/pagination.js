@@ -59,3 +59,4 @@ function logic() {
 	appendBtn(per_page_max);
 
 }
+
