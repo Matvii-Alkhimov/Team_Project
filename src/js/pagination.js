@@ -60,3 +60,19 @@ function logic() {
 
 }
 
+import cardsTemplate from "../cards-render.handlebars"
+const cardsUl = document.querySelector('.cards-list')
+btns.addEventListener('click', paginateCards)
+
+function paginateCards(event) {
+	const elementNumber = event.target.textContent
+	console.log(elementNumber);
+	fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=20&page=${elementNumber}&apikey=G54BzBe6OKEVYrbTC4hVXGtHDspAOWwv`)
+		.then(res => res.json())
+		.then(data => data._embedded.events)
+		.then(events => {
+			cardsUl.innerHTML = "";
+			const markup = cardsTemplate(events)
+			cardsUl.innerHTML = markup
+		})
+}
