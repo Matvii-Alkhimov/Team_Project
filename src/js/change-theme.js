@@ -9,6 +9,7 @@ themeToggle.addEventListener('change', onToggleChange);
 function onToggleChange() {
     if (themeToggle.checked) {
         icon.style.backgroundImage = `url(${darkMode})`;
+        document.body.style.backgroundColor = 'red';
     } else {
         icon.style.backgroundImage = `url(${lightMode})`;
     }
