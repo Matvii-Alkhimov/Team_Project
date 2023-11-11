@@ -1,50 +1,50 @@
-$darkMode: url('../img/change-theme/light_mode.svg');
+// $darkMode: url('../img/change-theme/light_mode.svg');
 
-input[type="checkbox"] {
-    display: none;
-}
+// input[type="checkbox"] {
+//     display: none;
+// }
 
-label.toggle-label {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
+// label.toggle-label {
+//     display: inline-block;
+//     position: relative;
+//     cursor: pointer;
 
-    width: 40px;
-    height: 20px;
+//     width: 40px;
+//     height: 20px;
 
-    background-color: #ccc;
-    border-radius: 20px;
-}
+//     background-color: #ccc;
+//     border-radius: 20px;
+// }
 
-input[type="checkbox"]:checked + label.toggle-label {
-    background-color: #007bff;
-}
+// input[type="checkbox"]:checked + label.toggle-label {
+//     background-color: #007bff;
+// }
 
-label.toggle-label::before {
-    content: "";
-    position: absolute;
+// .theme-toggle {
+//     content: "";
+//     position: absolute;
 
-    width: 18px;
-    height: 18px;
+//     width: 18px;
+//     height: 18px;
 
-    background-color: #fff;
-    border-radius: 50%;
+//     background-color: #fff;
+//     border-radius: 50%;
     
-    top: 1px;
-    left: 1px;
-    transition: transform 0.4s;
-}
+//     top: 1px;
+//     left: 1px;
+//     transition: transform 0.4s;
+// }
 
-input[type="checkbox"]:checked + label.toggle-label::before {
-    transform: translateX(20px);
-}
+// input[type="checkbox"]:checked + label.toggle-label {
+//     transform: translateX(20px);
+// }
 
-.icon {
-    fill: white;
-    display: inline-block;
+// .icon {
+//     fill: white;
+//     display: inline-block;
 
-    width: 24px;
-    height: 24px;
+//     width: 24px;
+//     height: 24px;
     
-    background-image: $darkMode;
-}
+//     background-image: $darkMode;
+// }
