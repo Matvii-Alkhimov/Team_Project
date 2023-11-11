@@ -10,7 +10,6 @@ const countryInputSearch = document.getElementById('countryName')
 const searchSpan = document.querySelector('.search-box .material-symbols-outlined')
 form.addEventListener('submit', renderSearchedCards)
 searchSpan.addEventListener('click', renderSearchedCards)
-headerSerchInput.addEventListener('input', renderSearchedCards)
 likedFilterEl.addEventListener('click', renderLikedCards)
 allFilterEl.addEventListener('click', renderCards)
 
@@ -46,9 +45,9 @@ function sortCountries(countries) {
 }
 
 
-async function fetchMusics() {
+async function fetchMusics(pageNumber) {
     try {
-        const musicsData =  await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=G54BzBe6OKEVYrbTC4hVXGtHDspAOWwv`)
+        const musicsData =  await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?page=${pageNumber}&apikey=G54BzBe6OKEVYrbTC4hVXGtHDspAOWwv`)
         const musicsDataArray =  await musicsData.json() 
         const gotMusicsData = musicsDataArray._embedded.events
         return gotMusicsData
@@ -63,23 +62,32 @@ async function renderSearchedCards(event) {
     const inputValue = countryInputSearch.value
     if (inputValue !== '') {
         mainCardsList.innerHTML = ''
-        fetchMusics(inputValue)
-        .then((music)=> {
-            for (let i = 0; i < music.length; i++) {
-                const cardName = music[i].name.toLowerCase()
-                if (cardName.includes(inputValue.toLowerCase()) && inputValue !== '') {
-                    mainCardsList.innerHTML += searchedCardTpl(music[i])
+        for (let i = 0; i < 30; i++) {
+            await fetchMusics(i)
+            .then(async (music)=> {
+            const cardsEl = document.querySelectorAll('.cards-list .card')
+                if (cardsEl.length <= 20) {
+                    await showCards(music, inputValue)
                 }
-            }
-        });
+            });
+        }
     } else {
         renderCards()
     }
 }
 
+async function showCards(music, inputValue) {
+    for (let i = 0; i < music.length; i++) {
+        const cardName = music[i].name.toLowerCase()
+        if (cardName.includes(inputValue.toLowerCase()) && inputValue !== '') {
+            mainCardsList.innerHTML += searchedCardTpl(music[i])
+        }
+    }
+}
+
 async function renderCards() {
     mainCardsList.innerHTML = ''
-    fetchMusics()
+    await fetchMusics(0)
     .then((music)=> {
         for (let i = 0; i < music.length; i++) {
             mainCardsList.innerHTML += searchedCardTpl(music[i])
@@ -90,12 +98,14 @@ async function renderCards() {
 async function renderLikedCards() {
     const liked = JSON.parse(localStorage.getItem('liked'))
     mainCardsList.innerHTML = ''
-    fetchMusics()
-    .then((music)=> {
-        for (let i = 0; i < music.length; i++) {
-            if (liked.includes(music[i].id)) {
-                mainCardsList.innerHTML += searchedCardTpl(music[i])
+    for (let i = 0; i < 30; i++) {
+        await fetchMusics(i)
+        .then((music)=> {
+            for (let i = 0; i < music.length; i++) {
+                if (liked.includes(music[i].id)) {
+                    mainCardsList.innerHTML += searchedCardTpl(music[i])
+                }
             }
-        }
-    });
+        });
+    }
 }
