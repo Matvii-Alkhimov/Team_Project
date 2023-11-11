@@ -37,7 +37,7 @@ renderCountries()
 
 function sortCountries(countries) {
     const countriesArray = []
-    for (country of countries) {
+    for (let country of countries) {
         countriesArray.push(country.name.common)
     }
     const sortCountries = countriesArray.sort()
