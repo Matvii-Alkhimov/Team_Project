@@ -1,37 +1,107 @@
-document.getElementById("countryDropdown").addEventListener("change", async function () {
-  const country = this.value;
-  const apiKey = "qn9etkDNhtdkZcjBBZRgAISaFvIyDaIP";  
+import cardsTemplate from "../cards-render.handlebars"
 
- 
-  document.getElementById("results").innerHTML = "";
+document.getElementById("countryDropdown").addEventListener("change", async function () {
 
   try {
+
+    const country = this.value;
+    const apiKey = "qn9etkDNhtdkZcjBBZRgAISaFvIyDaIP";  
+  
     const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=${country}&apikey=${apiKey}`);
-    if (!response.ok) {
-      throw new Error(`HTTP помилка! Статус: ${response.status}`);
-    }
     const data = await response.json();
     const events = data._embedded.events;
-    const resultsContainer = document.getElementById("results");
+    console.log(data);
+    const filteredEvents = events.filter(event => event.countryCode === country);
+  
+    const cardsHtml = cardsTemplate(filteredEvents); 
 
-    if (events.length === 0) {
-      resultsContainer.innerHTML = "Подій не знайдено";
-    } else {
-      const ul = document.createElement("ul");
-      events.forEach((event) => {
-       
-        if (event._embedded.venues[0].countryCode === country) {
-          const li = document.createElement("li");
-          li.textContent = event.name;
-          ul.appendChild(li);
-        }
-      });
-      resultsContainer.appendChild(ul);
-    }
-  } catch (error) {
-    console.error("Помилка під час виконання запиту:", error);
-    document.getElementById("results").innerHTML = "Помилка під час виконання запиту";
+
+document.getElementById('results').innerHTML = cardsHtml;
+
+  } catch (error){
+
+    console.log(error)
   }
 });
 
+ 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const selectEl = document.getElementById('countrySelect'); 
+// const cardsContainer = document.getElementById('cards');
+ 
+// async function fetchEvents(id) {
+// try {
+//   const country = await fetch (`https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=${API_KEY}`);
+//   const res = await country.json();
+//   return res;
+
+// } catch (error) {
+//   console.log(error);
+// }
+  
+// }
+
+// async function filterEvents() {
+
+//   const countryCode = selectEl.value;
+  
+//   const events = await fetchEvents(countryCode);
+
+ 
+//   const filteredEvents = events.filter(event => {
+//     return event.countryCode === countryCode; 
+//   });
+
+ 
+//   const cardsHtml = cardsTemplate(filteredEvents);
+
+//   document.getElementById('cards').innerHTML = cardsHtml;
+
+// }
+
+ 
+// selectEl.addEventListener('change', filterEvents); 
+
+ 
+// filterEvents();
