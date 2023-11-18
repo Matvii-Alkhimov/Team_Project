@@ -20,7 +20,7 @@ align-items: center;
 
 .card-box{
    text-align: center;
-    // background-color: #fff;
+  
 }
 
 .image{
@@ -58,18 +58,23 @@ align-items: center;
     border-color: #DC56C54D;
     border-radius: 50px 0px 50px 0px;
     background-color: inherit;
-    background-image: $heart;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     transition:cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.liked-button:hover{
-    background-color: #DC56C54D;
-  stroke: #DC56C5;
+.heartSvg :hover{
+  fill: #DC56C54D;
 }
 
-.liked{
-    
+.liked-button :hover{
+    color: #DC56C54D;
+}
+
+
+.liked-button.liked .heartSvg{
+    fill: #DC56C5;
+    stroke: #983c89;
+    stroke-width: 5px;
 }
