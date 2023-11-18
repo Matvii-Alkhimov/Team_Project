@@ -1,44 +1,45 @@
 import darkMode from "../img/change-theme/dark_mode.svg";
 import lightMode from "../img/change-theme/light_mode.svg";
 
-const themeToggle = document.querySelector('.theme-toggle');
-const icon = document.querySelector('.toggle-label');
-console.log(icon);
+const toggleLabel = document.querySelector('.toggle-label');
+const toggle = document.querySelector('.toggle');
+
+// console.log(toggleLabel);
 
 // class ThemeChanger {
 //     constructor(darkMode, lightMode) {
-//         this.icon = icon;
+//         this.toggleLabel = toggleLabel;
 //         this.darkMode = darkMode;
 //         this.lightMode = lightMode;
-//         this.themeToggle = themeToggle;
-//         this.themeToggle.addEventListener('change', onToggleChange);
+//         this.toggle = toggle;
+//         this.toggle.addEventListener('change', onToggleChange);
 //     }
 
 //     onToggleChange() {
-//         if (this.themeToggle.checked) {
-//             this.icon.style.backgroundImage = `url(${lightMode})`;
+//         if (this.toggle.checked) {
+//             this.toggleLabel.style.backgroundImage = `url(${lightMode})`;
 //             document.body.style.backgroundColor = 'white';
 //         } else {
-//             this.icon.style.backgroundImage = `url(${darkMode})`;
+//             this.toggleLabel.style.backgroundImage = `url(${darkMode})`;
 //         }
 //     }
 // }
-themeToggle.addEventListener('change', onToggleChange);
+toggle.addEventListener('change', onToggleChange);
 
 function onToggleChange(event) {
     console.log(event.target);
-    if (icon) {
-        if (themeToggle.checked) {
-            icon.style.backgroundImage = `url(${lightMode})`;
+    if (toggleLabel) {
+        if (toggle.checked) {
+            toggleLabel.style.backgroundImage = `url(${lightMode})`;
             document.body.classList.add('light-theme')
         } else {
-            icon.style.backgroundImage = `url(${darkMode})`;
+            toggleLabel.style.backgroundImage = `url(${darkMode})`;
             document.body.classList.remove('light-theme');
             document.body.classList.add('dark-theme')
         }
     }
     
-    console.log(themeToggle.checked);
+    console.log(toggle.checked);
 
 }
 
