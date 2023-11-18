@@ -60,21 +60,22 @@ const body = document.querySelector("body")
 openModale.addEventListener("click", (event) => {
     console.log(event.target.nodeName)
    if (event.target.nodeName === "IMG") {
-    let id = event.target.id
+    // let id = event.target.id
     const img = document.querySelector('.img1')
-    const img1 = document.querySelector('.ima')
+    // console.log(img);
+    const img1 = document.querySelector('.img2')
     const li = event.target.closest('li') 
     const nameElement = li.querySelector('.name') 
-    const name = nameElement.textContent 
-    document.querySelector('.p-info').textContent = `${name} is the largest music festival` 
-    document.querySelector('.p-info:nth-child(4)').textContent = `${li.querySelector('.date').textContent}`
-    document.querySelector('.p-info:nth-child(7)').textContent = `${li.querySelector('.place').textContent}` 
-    console.log(id);
-    img1.style = "border-radius: 50%;width:132px; height:132px"
-    fetch(`https://pixabay.com/api/?key=39207344-802fb38289e47f3cf2d375300&id=${id}`) 
-    .then(resp => resp.json()) 
-    .then(re => img.scr = re)
-    .then(r => img1.scr = r) 
+    // const name = nameElement.textContent 
+    // document.querySelector('.p-info').textContent = `${name} is the largest music festival` 
+    // document.querySelector('.p-info:nth-child(4)').textContent = `${li.querySelector('.date').textContent}`
+    // document.querySelector('.p-info:nth-child(7)').textContent = `${li.querySelector('.place').textContent}`
+    console.log(img,img1,nameElement,document.querySelector('.p-info'))
+    // console.log(id);
+    // img1.style = "border-radius: 50%;width:132px; height:132px"
+    // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=wfAi1gocagJe9lBfGlvRi4NoldweukkN&id=${id}`) 
+    // .then(resp => resp.json()) 
+    // .then(re => img.src = re['_embedded']['events'][0]['images'][0]['url'])
     backdrop.classList.remove("is-hidden")
     window.addEventListener("keydown", onModalEscClose)
    }
