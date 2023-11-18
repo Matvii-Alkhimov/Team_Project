@@ -67,8 +67,8 @@ openModale.addEventListener("click", (event) => {
     const nameElement = li.querySelector('.name') 
     const name = nameElement.textContent 
     document.querySelector('.p-info').textContent = `${name} is the largest music festival` 
-    document.querySelector('.p-info:nth-child(4)').textContent = `${liElement.querySelector('.date').textContent}`
-    document.querySelector('.p-info:nth-child(7)').textContent = `${liElement.querySelector('.place').textContent}` 
+    document.querySelector('.p-info:nth-child(4)').textContent = `${li.querySelector('.date').textContent}`
+    document.querySelector('.p-info:nth-child(7)').textContent = `${li.querySelector('.place').textContent}` 
     console.log(id);
     img1.style = "border-radius: 50%;width:132px; height:132px"
     fetch(`https://pixabay.com/api/?key=39207344-802fb38289e47f3cf2d375300&id=${id}`) 
