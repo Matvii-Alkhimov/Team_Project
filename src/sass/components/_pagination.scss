@@ -6,11 +6,10 @@
 	display: inline-block;
 	letter-spacing: .5px;
 	text-align: center;
-	padding: 7px 14px;
+	padding: 5px 10px;
 	color: rgb(255, 255, 255);
 	border-radius: none;
 	text-transform: uppercase;
-	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -18,18 +17,22 @@
 	font-size: 16px;
 	border: none;
 	outline: none;
-	transition: background-color .3s ease-out;
-	text-align: center;
+	background-color: black;
 }
 
 .btn-pagination.active {
-	padding: 12px 5px;
 	border: 1px solid #DC56C5;
-	padding: 6px 13px;
 	color: #DC56C5;
 	border-radius: 10px 0px;
 }
 
 .btn-pagination:hover {
 	color: #DC56C5;
+}
+
+@media screen and (max-width: 320px) {
+	.btn-pagination {
+		font-size: 14px;
+		padding: 5px 8px;
+	}
 }
