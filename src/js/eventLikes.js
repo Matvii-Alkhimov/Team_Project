@@ -24,7 +24,7 @@ function unlikeEvent(id){
 
 async function likeBtnClick(e){
     try {
-        if(e.target.classList.value.includes('like-button')){
+        if(e.target.classList.value.includes('liked-button')){
             e.preventDefault()
             id=e.target.dataset.id
             if(liked.includes(id)){unlikeEvent(id)}else{likeEvent(id)}
@@ -54,3 +54,5 @@ async function renderFilter() {
         console.error(error)
     }
 }
+
+

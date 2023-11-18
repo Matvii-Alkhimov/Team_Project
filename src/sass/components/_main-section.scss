@@ -59,20 +59,17 @@ align-items: center;
     border-radius: 50px 0px 50px 0px;
     background-color: inherit;
     background-image: $heart;
-     
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    // transition:cubic-bezier(0.23, 1, 0.320, 1);
+    transition:cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .liked-button:hover{
     background-color: #DC56C54D;
-  fill:#DC56C54D;
+  stroke: #DC56C5;
 }
 
-.svg-icon{
-    width: 20px;
-    height: 18px;
-    // color: #DC56C54D;
+.liked{
+    
 }
