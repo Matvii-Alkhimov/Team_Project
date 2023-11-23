@@ -7,24 +7,40 @@ console.log(likedButton)
 const fetchEvents = async() => {
   const response= await fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=wfAi1gocagJe9lBfGlvRi4NoldweukkN")
   const events = await response.json()
-  return events;
+ return events 
+  
 }
 
-fetchEvents()
-.then(data=>data._embedded.events)
-.then(events => {
-    const markup = cardsTemplate(events)
+const renderEvents = async() => {
+try{
+const data = await fetchEvents()
+const events = await data._embedded.events
+const markup = cardsTemplate(events)
     cardsUl.innerHTML = markup
-})
-.catch(error => console.log(error))
-
-
-// likedButton.addEventListener("click", changeTheme)
-
-function changeTheme(){
-  likedButton.classList.add("liked")
+}catch(error){
+  console.log(error)
+}
 }
 
+renderEvents()
+cardsUl.addEventListener("click", like)
+
+function like(event){
+  if(event.target.nodeName === 'BUTTON'){
+    console.log(event.target.nodeName)
+    event.target.classList.add("liked")
+  }
+
+}
+
+// cardsUl.addEventListener("click", unlike)
+
+function unlike(event){
+  if(event.target.classList.contains("liked") === true){
+    event.target.classList.remove("liked")
+  }
+ 
+}
 
 
 
