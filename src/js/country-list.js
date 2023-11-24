@@ -13,6 +13,7 @@ select.addEventListener("change", async (event) => {
    
     const data = await response.json();
  if (!data._embedded){
+   alert("This country has no events");
   return
  }
     const events = data._embedded.events;
