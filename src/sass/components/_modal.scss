@@ -1,3 +1,54 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+  
+    background-color: rgba(0, 0, 0, 0.2);
+  
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    &.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+  
+      & .modal-event {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+  }
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+  
+    background-color: rgba(0, 0, 0, 0.2);
+  
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    &.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+  
+      & .modal-event {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+  }
+.cont{
+    display: flex;
+    align-items: center;
+}
+.imagetick{
+    margin-right: 10px;
+}
 .ima{
     padding-top: 30px;
     display: flex;
@@ -5,12 +56,14 @@
 }
 .ul-main{
     display: flex;
-    justify-content: space-evenly;
     list-style: none; 
-    padding-bottom: 43px;
     padding-top: 36px;
 }
+.ul-main li:first-child{
+    padding-right: 60px;
+}
 .button-end{
+    padding-top: 30px;
     display: flex;
     justify-content: center;
 }
@@ -33,18 +86,18 @@ button.close img {
     left: 256px;
     border-radius: 5px;
 }
-.modal{
+.modal-event{
     background: rgba(255, 242, 253, 1);
-    width: 942px;
-    height: 1023px;
+    width: 842px;
+    height: 923px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     padding: 40px;
-    background-color: var(--background-color);
     border-radius: 4px;
+    border-radius: 300px 0px;
 }
 .h2-info{
     font-family: Montserrat;
@@ -72,42 +125,49 @@ button.close img {
     margin-top: 10px;
     margin-bottom: 20px;
 }
-@media (max-width:320px){
-    .ul-main li:first-child{
-        display: none;
-    }
+button.close{
+    padding-left: 730px;
+}
+@media (min-width:320px) and (max-width:768px){
     .modal{
         width: 272px;
         height: 915px;
     }
     button.close{
-        padding-left: 230px;
+        padding-left: 365px;
     }
     .ima{
         padding-top: 20px;
     }
+    button.close{
+        padding-top: 20px;
+    }
+    .div-big-img{
+        display: none;
+    }
     .d-ul{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
     }
     .p-info{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
     } 
     .h2-info{
         display: flex;
-        justify-content:center;
+        justify-content:flex-start;
     }
     .button-end{
         display: flex;
         justify-content: center;
+        transform: rotate(90deg);
     } 
     .butt-d{
         display: flex;
         justify-content: center;
     }
 }
-@media (min-width:320px) and (max-width:768px){
+@media (max-width:420px){
     .ul-main{
         justify-content: initial;
     }
@@ -115,8 +175,8 @@ button.close img {
         margin-right: 30px;
     }
     .modal{
-        width: 595px;
-        height: 831px;
+        width: 272px;
+        height: 915px;
     }
     .ima{
         padding: 0;
@@ -138,6 +198,7 @@ button.close img {
         margin: 0;
     }
     button.close{
-        padding-left: 553px;
+        padding-left: 360px;
+        padding-bottom: 30px;
     }
 }
