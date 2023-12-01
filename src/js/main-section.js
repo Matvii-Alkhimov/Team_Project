@@ -33,14 +33,6 @@ function like(event){
 
 }
 
-// cardsUl.addEventListener("click", unlike)
-
-function unlike(event){
-  if(event.target.classList.contains("liked") === true){
-    event.target.classList.remove("liked")
-  }
- 
-}
 
 
 
